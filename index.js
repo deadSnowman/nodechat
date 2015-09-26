@@ -13,7 +13,7 @@ app.get('/', function(req, res){
 // log message
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
-    console.log('message: ' + msg);
+    console.log('message: ' + JSON.stringify(msg));
   });
 });
 
