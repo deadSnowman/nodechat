@@ -9,12 +9,15 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
+
+// log message
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     console.log('message: ' + msg);
   });
 });
 
+// emit message
 io.on('connection', function(socket){
   socket.on('chat message', function(msg){
     io.emit('chat message', msg);

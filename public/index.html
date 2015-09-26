@@ -30,23 +30,53 @@
     <div class="chatArea">
       <ul id="messages"></ul>
     </div>
-    <form action="">
-      <input id="m" autocomplete="off" /><button class="btn btn-primary btn-lg">Send</button>
+
+    <form class="form-inline" action="">
+      <div class="col-sm-12">
+        <input id="name" class="form-control" autocomplete="off" placeholder="Name" />
+      </div>
+      <div class="col-sm-10">
+        <input id="m" class="form-control"  autocomplete="off"/>
+      </div>
+      <div class="col-sm-2">
+        <button class="btn btn-primary btn-lg">Send</button>
+      </div>
     </form>
+
+
     </script>
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
       $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
+        var msg = {
+          name: $('#name').val(),
+          message: $('#m').val()
+        };
+        
+        if(msg.name != "")
+          socket.emit('chat message', msg);
+
+        document.getElementById('m').value='';
+
         return false;
       });
+      
       socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text(msg));
-        window.scrollTo(0,document.body.scrollHeight);
+        $('#messages').append($('<li>').text("<" + msg.name + "> " + msg.message));
+
+        //window.scrollTo(0,document.body.scrollHeight);
+        //window.onload = scrollDown;
       });
+
+      socket.on('user name', function(uname){
+        $('#messages').append($('<li>').text(uname));
+      });
+
+      function scrollDown() {
+        window.scrollTo(0, 300);
+      }
     </script>
 
     <!-- Bootstrap core JavaScript

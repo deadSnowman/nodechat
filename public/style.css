@@ -16,7 +16,7 @@ ul {
 
 .chatArea{
   height: 100%;
-  padding-bottom: 60px;
+  padding-bottom: 100px;
 }
 
 #messages {
@@ -28,26 +28,13 @@ ul {
 
 #messages { list-style-type: none; margin: 0; padding: 0; }
 #messages li { padding: 5px 10px; }
-#messages li { overflow-y: scroll; padding: 10px 20px 10px 20px; }
+#messages li { padding: 10px 20px 10px 20px; }
 #messages li:nth-child(odd) { background: #d9edf7; }
 
-/*.form {
-  border: 10px solid #000;
-  bottom: 0;
-  height: 60px;
-  left: 0;
-  outline: none;
-  padding-left: 10px;
-  position: absolute;
-  right: 0;
+form { padding: 10px; position: absolute; bottom: 0; width: 100%; }
+/*form input { padding: 10px; width: 90%; margin-right: .5%; }*/
+#m {
   width: 100%;
-}*/
-
-form { padding: 3px; position: fixed; bottom: 0; width: 100%; }
-form input { padding: 10px; width: 90%; margin-right: .5%; }
-form button { width: 9%; padding: 10px; }
-
-/*#messages { list-style-type: none; margin: 0; padding: 0; }
-#messages li { padding: 5px 10px; }
-#messages li { overflow-y: scroll; padding: 10px 20px 10px 20px; }
-#messages li:nth-child(odd) { background: #d9edf7; }*/
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
