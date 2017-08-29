@@ -55,7 +55,7 @@
           message: $('#m').val()
         };
         
-        if(msg.name != "")
+        if(msg.name != "" && msg.message != "")
           socket.emit('chat message', msg);
 
         document.getElementById('m').value='';
