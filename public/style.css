@@ -19,7 +19,7 @@ ul {
   word-wrap: break-word;
 }
 
-.chatArea{
+.chatArea {
   height: 100%;
   padding-bottom: 150px;
 }
@@ -36,7 +36,15 @@ ul {
 #messages li { padding: 10px 20px 10px 20px; }
 #messages li:nth-child(odd) { background: #d9edf7; }
 
+/*form { padding: 10px; position: fixed; bottom: 0; width: 100%; }*/
 form { padding: 10px; position: fixed; bottom: 0; width: 100%; }
+form {
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+}
 /*form input { padding: 10px; width: 90%; margin-right: .5%; }*/
 #m {
   width: 100%;
