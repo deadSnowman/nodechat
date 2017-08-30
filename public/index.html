@@ -27,21 +27,27 @@
   </head>
   <body>
 
-    <div class="chatArea">
-      <ul id="messages"></ul>
-    </div>
+    <div id="cont">
 
-    <form class="form-inline" action="">
-      <div class="col-sm-12">
-        <input id="name" class="form-control" autocomplete="off" placeholder="Name" />
+      <!-- chat area -->
+      <div class="chatArea">
+        <ul id="messages"></ul>
       </div>
-      <div class="col-sm-10">
-        <input id="m" class="form-control"  autocomplete="off"/>
-      </div>
-      <div class="col-sm-2">
-        <button class="btn btn-primary btn-lg">Send</button>
-      </div>
-    </form>
+
+      <!-- form area -->
+      <form class="form-inline" action="">
+        <div class="col-sm-12">
+          <input id="name" class="form-control" autocomplete="off" placeholder="Name" />
+        </div>
+        <div class="col-sm-10">
+          <input id="m" class="form-control"  autocomplete="off"/>
+        </div>
+        <div class="col-sm-2">
+          <button class="btn btn-primary btn-lg">Send</button>
+        </div>
+      </form>
+
+    </div> <!-- end cont -->
 
 
     </script>
@@ -65,8 +71,15 @@
       });
       
       socket.on('chat message', function(msg){
-        $('#messages').append($('<li>').text("<" + msg.name + "> " + msg.message));
-        $(window).scrollTop($(document).height());
+        /*$('#messages').append($('<li>').text("<" + msg.name + "> " + msg.message));*/
+        $('#messages').append($('<li>').text(msg.name + ": " + msg.message));
+
+        // Old method for scrolling (scrolls entire document)
+        //$(window).scrollTop($(document).height());
+
+        // Scroll messages to the bottom
+        var objDiv = document.getElementById('messages');
+        objDiv.scrollTop = objDiv.scrollHeight;
       });
 
     </script>
